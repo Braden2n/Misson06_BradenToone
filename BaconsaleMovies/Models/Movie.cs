@@ -1,10 +1,17 @@
-﻿namespace BaconsaleMovies.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BaconsaleMovies.Models
 {
     public class Movie
     {
-        public Movie()
-        {
-
-        }
+        [Key]
+        public required int movie_id { get; set; }
+        public required string category { get; set; }
+        public required string title { get; set; }
+        public required string year { get; set; }
+        public required string rating { get; set; }
+        public string? edited { get; set; }
+        public string? lent_to { get; set; }
+        public string? notes { get; set; }
     }
 }
