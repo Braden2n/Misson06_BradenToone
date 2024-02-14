@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Enter a Movie";
+}
+@model Movie
+
+<form method="post">
+    <label asp-for="title">Title</label>
+    <input asp-for="title" />
+    <br />
+    <label asp-for="category">Category</label>
+    <input asp-for="category" />
+    <br />
+    <label asp-for="subcategory">Sub-Category</label>
+    <input asp-for="subcategory" />
+    <br />
+    <label asp-for="year">Year</label>
+    <input asp-for="year" />
+    <label asp-for="directors">Director(s)</label>
+    <br />
+    <input asp-for="directors" />
+    <label asp-for="rating">Rating</label>
+    <br />
+    <select asp-for="rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+        <option value="NR">NR</option>
+    <br />
+    </select>
+    <br />
+    <label asp-for="edited">Edited</label>
+    <select asp-for="edited">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
+    <label asp-for="lent_to">Lent To</label>
+    <input asp-for="lent_to" />
+    <br />
+    <label asp-for="notes">Notes</label>
+    <input asp-for="notes" maxlength="25" />
+    <br />
+    <button type="submit">Submit Movie</button>
+</form>
