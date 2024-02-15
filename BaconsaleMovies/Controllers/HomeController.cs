@@ -9,6 +9,7 @@ namespace BaconsaleMovies.Controllers
         private MovieContext _movieContext;
         public HomeController(MovieContext movieContext)
         {
+            // Constructor for SQLite context
             _movieContext = movieContext;
         }
         public IActionResult Index()
@@ -28,8 +29,10 @@ namespace BaconsaleMovies.Controllers
         [HttpPost]
         public IActionResult EnterMovie(Movie movie) 
         {
+            // Inserting movie to DB on Post
             _movieContext.Add(movie);
             _movieContext.SaveChanges();
+            // Rendering the view with the movie
             return View(movie);
         }
     }

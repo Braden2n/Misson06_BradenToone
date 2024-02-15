@@ -2,6 +2,7 @@
 
 namespace BaconsaleMovies.Models
 {
+    // Movie model
     public class Movie
     {
         [Key]

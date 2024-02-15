@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Adding Sqlite Connection
 builder.Services.AddDbContext<MovieContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:Baconsale"]);
