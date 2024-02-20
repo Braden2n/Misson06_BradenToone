@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 // Adding Sqlite Connection
 builder.Services.AddDbContext<MovieContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:Baconsale"]);
+    options.UseSqlite(builder.Configuration["ConnectionStrings:JoelHilton"]);
 });
 
 var app = builder.Build();
