@@ -11,6 +11,7 @@ namespace BaconsaleMovies.Models
         public required int MovieId { get; set; }
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
+        public CategoryModel? Category { get; set; }
         [Required(ErrorMessage = "Title is a required field")]
         public required string Title { get; set; }
         [Required(ErrorMessage = "Year is a required field")]
