@@ -69,7 +69,7 @@ namespace BaconsaleMovies.Controllers
                 _movieContext.SaveChanges();
                 //Getting Categories and Ratings
                 prepViewBag(false, true);
-                return RedirectToAction("EnterMovie");
+                return View("MovieForm", new Movie());
             }
             else
             {
