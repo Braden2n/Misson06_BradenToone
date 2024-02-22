@@ -5,12 +5,14 @@
     
 }
 @model Movie
+
 <div class="container">
     <h2>Deletion Confirmation</h2>
     <br />
     <h4>Delete '@Model.Title' (@Model.Year, @Model.Director)?</h4>
     <br />
-    <form asp-controller="Home" asp-action="DeleteMovie" asp-route-movie="@Model" method="post">
+    <form method="post">
+        <input type="hidden" asp-for="MovieId" />
         <button class="btn btn-danger" type="submit">Delete</button>
         <a class="btn btn-info" asp-controller="Home" asp-action="MovieList">Cancel</a>
     </form>
