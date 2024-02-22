@@ -32,11 +32,12 @@ namespace BaconsaleMovies.Controllers
             return _movieContext.Movies
                 .Single(m => m.MovieId == id);
         }
-        private void prepViewBag(bool isUpdating = false)
+        private void prepViewBag(bool isUpdating = false, bool submitAgain = false)
         {
             ViewBag.Categories = getCategories();
             ViewBag.Ratings = getRatings();
             ViewBag.isUpdating = isUpdating;
+            ViewBag.submitAgain = submitAgain;
         }
         public HomeController(MovieContext movieContext)
         {
@@ -56,7 +57,7 @@ namespace BaconsaleMovies.Controllers
         {
             // Getting Categories and Ratings
             prepViewBag();
-            return View("MovieForm");
+            return View("MovieForm", new Movie());
         }
         [HttpPost]
         public IActionResult EnterMovie(Movie movie) 
@@ -67,12 +68,12 @@ namespace BaconsaleMovies.Controllers
                 _movieContext.Add(movie);
                 _movieContext.SaveChanges();
                 //Getting Categories and Ratings
-                prepViewBag();
-                // Rendering the view with the movie
-                return View("MovieForm", movie);
+                prepViewBag(false, true);
+                return RedirectToAction("EnterMovie");
             }
             else
             {
+                prepViewBag();
                 return View("MovieForm", movie);
             }
         }
@@ -111,7 +112,7 @@ namespace BaconsaleMovies.Controllers
             return View(movie);
         }
         [HttpPost]
-        public IActionResult DeleteMove(Movie movie)
+        public IActionResult DeleteMovie(Movie movie)
         {
             _movieContext.Remove(movie);
             _movieContext.SaveChanges();
