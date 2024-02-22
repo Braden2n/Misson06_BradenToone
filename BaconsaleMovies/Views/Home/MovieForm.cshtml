@@ -3,7 +3,15 @@
 }
 @model Movie
 <div class="container">
-    <h1>Enter a movie into the database</h1>
+    @if (ViewBag.submitAgain)
+    {
+        <h1>Thanks for your submission!</h1>
+        <h1>Enter another movie into the database</h1>
+    }
+    else
+    {
+        <h1>Enter a movie into the database</h1>
+    }
     <br />
     <div class="container">
         <form method="post">
