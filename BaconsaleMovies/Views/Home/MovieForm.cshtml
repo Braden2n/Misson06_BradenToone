@@ -17,7 +17,7 @@
         <form method="post">
             <input type="hidden" asp-for="MovieId" />
             <label asp-for="Title">Title</label>
-                <input asp-for="Title" />
+            <input asp-for="Title" required />
             <br />
             <br />
             <label asp-for="CategoryId">Category</label>
@@ -30,7 +30,7 @@
             <br />
             <br />
             <label asp-for="Year">Year</label>
-            <input asp-for="Year" min="1888" />
+            <input asp-for="Year" min="1888" required />
             <br />
             <br />
             <label asp-for="Director">Director(s)</label>
@@ -47,7 +47,7 @@
             <br />
             <br />
             <label asp-for="Edited">Edited</label>
-            <select asp-for="Edited">
+            <select asp-for="Edited" required >
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
@@ -58,7 +58,7 @@
             <br />
             <br />
             <label asp-for="CopiedToPlex">CopiedToPlex</label>
-            <select asp-for="CopiedToPlex">
+            <select asp-for="CopiedToPlex" required >
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
